@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Painel Operacional – Mega Terminal</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    #terminal {
+      position: relative;
+      width: 600px;
+      height: 500px;
+      border: 2px solid #333;
+      margin-bottom: 20px;
+    }
+    .plataforma {
+      position: absolute;
+      width: 140px;
+      height: 40px;
+      background: #ddd;
+      border: 1px solid #666;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background .2s;
+    }
+    .plataforma.ocupada { background: #f88; }
+    .plataforma.livre   { background: #8f8; }
+    /* posicionamento diagonal */
+    #p1 { top: 20px;  left: 20px;  transform: rotate(-10deg); }
+    #p2 { top: 60px;  left: 60px;  transform: rotate(-10deg); }
+    #p3 { top:100px;  left:100px;  transform: rotate(-10deg); }
+    #p4 { top:140px;  left:140px;  transform: rotate(-10deg); }
+    #p5 { top:180px;  left:180px;  transform: rotate(-10deg); }
+    #p6 { top:220px;  left:220px;  transform: rotate(-10deg); }
+    #p7 { top:260px;  left:260px;  transform: rotate(-10deg); }
+    #p8 { top:300px;  left:300px;  transform: rotate(-10deg); }
+    #p9 { top:340px;  left:340px;  transform: rotate(-10deg); }
+
+    .box-container {
+      position: absolute;
+      width: 150px;
+      height: 80px;
+      border: 1px dashed #999;
+      overflow: auto;
+      background: #f5f5f5;
+      padding: 2px;
+      font-size: 10px;
+    }
+    .box {
+      display: inline-block;
+      width:  twentypx;
+      height:  sixteenpx;
+      line-height: sixteenpx;
+      text-align: center;
+      border: 1px solid #666;
+      margin: 1px;
+    }
+
+    #boxes1 { top:70px;  left:20px;  }
+    #boxes2 { top:110px; left:60px;  }
+    #boxes3 { top:150px; left:100px; }
+    #boxes4 { top:190px; left:140px; }
+    #boxes5 { top:230px; left:180px; }
+    #boxes6 { top:270px; left:220px; }
+    #boxes7 { top:310px; left:260px; }
+    #boxes8 { top:350px; left:300px; }
+    #boxes9 { top:390px; left:340px; }
+
+    #area-espera {
+      border: 2px dashed #333;
+      padding: 10px;
+      max-width: 600px;
+    }
+    #area-espera h3 { margin-top: 0; }
+    #lista-espera { list-style: none; padding: 0; }
+    #lista-espera li { margin: 4px 0; }
+  </style>
+</head>
+<body>
+
+  <h1>Painel Operacional – Mega Terminal</h1>
+
+  <div id="terminal">
+    <div class="plataforma livre" id="p1" data-id="1">P1 – livre</div>
+    <div class="plataforma livre" id="p2" data-id="2">P2 – livre</div>
+    <div class="plataforma livre" id="p3" data-id="3">P3 – livre</div>
+    <div class="plataforma livre" id="p4" data-id="4">P4 – livre</div>
+    <div class="plataforma livre" id="p5" data-id="5">P5 – livre</div>
+    <div class="plataforma livre" id="p6" data-id="6">P6 – livre</div>
+    <div class="plataforma livre" id="p7" data-id="7">P7 – livre</div>
+    <div class="plataforma livre" id="p8" data-id="8">P8 – livre</div>
+    <div class="plataforma livre" id="p9" data-id="9">P9 – livre</div>
+
+    <div class="box-container" id="boxes1">
+      <!-- boxes 101–130 -->
+      <script>
+        for (let i = 101; i <= 130; i++) {
+          document.write('<div class="box">'+i+'</div>');
+        }
+      </script>
+    </div>
+    <div class="box-container" id="boxes2">
+      <script>
+        for (let i = 201; i <= 230; i++) {
+          document.write('<div class="box">'+i+'</div>');
+        }
+      </script>
+    </div>
+    <div class="box-container" id="boxes3">
+      <script>
+        for (let i = 301; i <= 330; i++) {
+          document.write('<div class="box">'+i+'</div>');
+        }
+      </script>
+    </div>
+    <div class="box-container" id="boxes4">
+      <script>
+        for (let i = 401; i <= 430; i++) {
+          document.write('<div class="box">'+i+'</div>');
+        }
+      </script>
+    </div>
+    <div class="box-container" id="boxes5">
+      <script>
+        for (let i = 501; i <= 530; i++) {
+          document.write('<div class="box">'+i+'</div>');
+        }
+      </script>
+    </div>
+    <div class="box-container" id="boxes6">
+      <script>
+        for (let i = 601; i <= 630; i++) {
+          document.write('<div class="box">'+i+'</div>');
+        }
+      </script>
+    </div>
+    <div class="box-container" id="boxes7">
+      <script>
+        for (let i = 701; i <= 730; i++) {
+          document.write('<div class="box">'+i+'</div>');
+        }
+      </script>
+    </div>
+    <div class="box-container" id="boxes8">
+      <script>
+        for (let i = 801; i <= 830; i++) {
+          document.write('<div class="box">'+i+'</div>');
+        }
+      </script>
+    </div>
+    <div class="box-container" id="boxes9">
+      <script>
+        for (let i = 901; i <= 930; i++) {
+          document.write('<div class="box">'+i+'</div>');
+        }
+      </script>
+    </div>
+  </div>
+
+  <div id="area-espera">
+    <h3>Área de Espera Externa</h3>
+    <ul id="lista-espera"></ul>
+  </div>
+
+  <script>
+    const plataformas = document.querySelectorAll('.plataforma');
+    const listaEspera = document.getElementById('lista-espera');
+    let espera = [];
+
+    plataformas.forEach(el => {
+      el.addEventListener('click', () => {
+        const id = el.dataset.id;
+        if (el.classList.contains('livre')) {
+          const onibus = prompt(`Informe o número do ônibus para alocar em P${id}:`);
+          if (!onibus) return;
+          alocarPlataforma(id, onibus);
+        } else {
+          const mover = confirm(`P${id} ocupada por Ô${el.dataset.bus}. Deseja liberar ou mover? OK=Mover para espera; Cancel=Liberar sem espera.`);
+          if (mover) {
+            moverParaEspera(id);
+          } else {
+            liberarPlataforma(id);
+          }
+        }
+      });
+    });
+
+    function alocarPlataforma(id, bus) {
+      const el = document.getElementById('p'+id);
+      el.classList.remove('livre');
+      el.classList.add('ocupada');
+      el.textContent = `P${id} – Ô${bus}`;
+      el.dataset.bus = bus;
+    }
+
+    function liberarPlataforma(id) {
+      const el = document.getElementById('p'+id);
+      delete el.dataset.bus;
+      el.classList.remove('ocupada');
+      el.classList.add('livre');
+      el.textContent = `P${id} – livre`;
+    }
+
+    function moverParaEspera(id) {
+      const el = document.getElementById('p'+id);
+      const bus = el.dataset.bus;
+      liberarPlataforma(id);
+      espera.push(bus);
+      atualizarEspera();
+    }
+
+    function atualizarEspera() {
+      listaEspera.innerHTML = '';
+      espera.forEach((bus, i) => {
+        const li = document.createElement('li');
+        li.textContent = `Ônibus ${bus}`;
+        const btn = document.createElement('button');
+        btn.textContent = 'Alocar';
+        btn.addEventListener('click', () => {
+          alocarPlataforma(i+1, bus);
+          espera.splice(i,1);
+          atualizarEspera();
+        });
+        li.appendChild(btn);
+        listaEspera.appendChild(li);
+      });
+    }
+  </script>
+
+</body>
+</html>
